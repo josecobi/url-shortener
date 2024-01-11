@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="index.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Url Shortener</title>
 </head>
 <body>
@@ -30,10 +31,17 @@
       </nav>
     <main>
         <div class="container-sm">
-            <form class="form">
+            <h4 class="heading-link">Paste your long link</h4>
+            <form method="get" class="form">
                 <input class="urlInputBox" type="url" placeholder="Enter link here">
                 <button class="shortenBtn" type="submit">Shorten URL</button>
             </form>
+            
+        </div>
+
+        <div class="container-sm">
+            <h4 class="heading-link">Your shortened link</h4>
+            <p class="shortened-link"></p>
             
         </div>
     </main>
