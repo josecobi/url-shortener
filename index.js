@@ -1,5 +1,6 @@
 import {shortenUrl} from './shortenUrl.js';
-export {form, inputBox, shortenedLink, API_KEY, getLinksBtn};
+import {getList} from './getList.js';
+export {form, inputBox, shortenedLink, API_KEY, getLinksBtn, listOfLinks};
 
 
 // Variables for all modules
@@ -8,6 +9,7 @@ const API_KEY = "sk_4f99a29fbce64868948b342fd520b2c0";
 
 // LOGIC FOR THE SHORTEN URL FUNCTION
 // Variables 
+
 const form = document.querySelector(".form");
 const inputBox = document.querySelector(".urlInputBox");
 // const shortenBtn = document.querySelector(".shortenBtn");
@@ -20,3 +22,6 @@ shortenUrl();
 // LOGIC FOR THE GET LINKS FUNCTION
 // Variables 
 const getLinksBtn = document.querySelector(".getLinksBtn");
+const listOfLinks = document.querySelector(".list-of-links");
+// Call function to get list of links
+getList();
