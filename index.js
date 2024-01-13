@@ -1,6 +1,6 @@
 import {shortenUrl} from './shortenUrl.js';
 import {getList} from './getList.js';
-export {form, inputBox, shortenedLink, API_KEY, getLinksBtn, listOfLinks};
+export {form, inputBox, shortenedLink, API_KEY, getLinksBtn, listOfLinks, tableBody};
 
 
 // Variables for all modules
@@ -23,5 +23,6 @@ shortenUrl();
 // Variables 
 const getLinksBtn = document.querySelector(".getLinksBtn");
 const listOfLinks = document.querySelector(".list-of-links");
+const tableBody = document.querySelector('.table-body');
 // Call function to get list of links
 getList();

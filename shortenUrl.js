@@ -47,7 +47,7 @@ async function fetchShortUrl(longUrl){
             console.log(body);
             const shortenedUrl = body.shortUrl;
             console.log('Shortened URL: ', shortenedUrl);
-            shortenedLink.textContent = shortenedUrl;
+            shortenedLink.value = shortenedUrl;
             return shortenedUrl;
         });
     }

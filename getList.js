@@ -1,4 +1,4 @@
-import {getLinksBtn, listOfLinks, API_KEY} from './index.js';
+import {getLinksBtn, listOfLinks, API_KEY, tableBody} from './index.js';
 
 // Declare function to list the links
 export async function getList(){
@@ -18,7 +18,6 @@ export async function getList(){
               .then(function(res) {
                   return res.json();
               }).then(function(body) {
-                  console.log(body.data);
                   addLinksToTable(body.data);
               });
         })
@@ -30,36 +29,54 @@ export async function getList(){
 
 /** Declare function that adds links to a table.
 It takes the array from the result given by the API 
-and pass the data from each object into a new row **/
-
-
+and passes the data from each object into a new row **/
 function addLinksToTable(arr){
+    listOfLinks.style.display = 'block';
     // Filter the object so we get rid of the data we don't need(sid, expiry, updateAt) and keep the rest.
     const filteredData = arr.map(({ sid, expiry, updatedAt, ...rest }) => rest);
-    console.log("filtered Data: ", filteredData);
-
+    // Clear table if there is any link
+    clearLinks();
+    let counter = 1;
     filteredData.forEach((object) => {
-                
+        // Number each row        
         let tableRow = document.createElement('tr');
+        let rowNumber = document.createElement('th');
+        rowNumber.textContent = counter++;
+        rowNumber.setAttribute("scope", "row");
+        tableRow.appendChild(rowNumber);
+        
+        // Iterate through the object https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
         for (const property in object){
-            let td = document.createElement('td');
-            td.textContent = object[property];
-            tableRow.appendChild(td);
+            let tableData = document.createElement('td');
+            let anchor = document.createElement('a');
+            if(property === 'expireAt'|| property === 'createdAt'){
+                // Convert date to UTCString https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON
+                object[property] = new Date(object[property]).toUTCString();
+            }
+            // Make links clickable and add them to the row
+            if(property === 'url'|| property === 'shortUrl'){
+                anchor.textContent = object[property];
+                anchor.setAttribute("href", object[property]);
+                tableData.setAttribute("style", "max-width: 40rem;");
+                tableData.setAttribute("class", "overflow-auto");
+                tableData.appendChild(anchor);
+                tableRow.appendChild(tableData);
+            }
+            // Add the rest of the data to the row
+            else{
+                tableData.textContent = object[property];
+                tableRow.appendChild(tableData);
+            }
         }
-        listOfLinks.appendChild(tableRow);   
+        // Add each row to the table body
+        tableBody.appendChild(tableRow);   
     })    
 }
 
 
-
-// function addHeadersToTable(arr){
-//     const headers = Object.keys(arr);
-
-// }
-
-// function addLinksToTable(arr){
-//     arr.forEach((link) => {
-//         document.createElement("tr")
-//     })
-    
-// }
+// Declare a function to clear the table
+function clearLinks(){
+    while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+      }
+}

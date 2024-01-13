@@ -10,8 +10,8 @@
    
     <title>Url Shortener</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body class="bg-secondary-subtle">
+    <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">URL Shortener</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,40 +29,43 @@
           </div>
         </div>
       </nav>
-    <main>
-        <div class="container-sm">
-            <h4 class="heading-link">Paste your long link</h4>
-            <form method="get" class="form">
-                <input class="urlInputBox" type="url" placeholder="Enter link here">
-                <button class="shortenBtn" type="submit">Shorten URL</button>
-            </form>
-            
-        </div>
+    <main class="row d-flex flex-column flex-nowrap justify-content-center align-items-center mt-4">
+          <div class="container col-8 d-flex flex-column flex-nowrap justify-content-center align-items-center p-5 g-3 border border-secondary-subtle rounded bg-light-subtle mb-4">
+                <h4 class="heading-link text-center p-3 row">Paste your long URL</h4>
+                <form method="get" class="container form text-center d-flex row flex-column flex-nowrap justify-content-center align-items-center g-3">
+                    <input class="urlInputBox form-control form-control-lg col-8" type="url" placeholder="Example: https://long-link-12345-abcdef.com" autofocus>
+                    <button class="shortenBtn btn btn-success p-2 col-3" type="submit">Shorten URL</button>
+                </form>
+                
+                <div class="mt-2 container row text-center d-flex flex-column flex-nowrap justify-content-center align-items-center g-3">
+                  <h4 class="heading-link">Your short URL:</h4>
+                  <input readonly="readonly" class="shortened-link form-control form-control-lg col-8" placeholder="Example: https://short.url/ab">
+                </div>        
+          </div>
 
-        <div class="container-sm">
-            <h4 class="heading-link">Your shortened link:</h4>
-            <p class="shortened-link"></p>
-            
-        </div>
-
-        <div class="container-sm">
+        <div class="col-8 d-flex flex-column flex-nowrap justify-content-center align-items-center p-5 g-3 border border-secondary-subtle rounded bg-light-subtle mb-4">
           <h4>My Links</h4>
-              <button class="getLinksBtn" type="submit">Get Links</button>                 
+              <p> In this section, gain insights into your shortened URLs effortlessly. Discover details such as the shortened link itself, the original link it corresponds to, the precise date and time it was created, and the expiration date and time. Keep track of your URL shortening activity with ease and stay informed about the lifecycle of each link at a glance."</p>
+              <button class="getLinksBtn btn btn-success p-2 col-2" type="submit">Show My Links</button>
+              
         </div>
 
-        <div class="container-sm">
-            <table class="list-of-links">
-              <thead>
-                <th>Shortened Link</th>
-                <th>Original Link</th>
-                <th>Created at</th>
-                <th>Expires at</th>
-              </thead>
-              <tbody class="table-body">
+        <div class="col-10 m-3">
+          <table class="list-of-links table table-striped">
+            <thead>
+              <tr>
+              <th scope="col">#</th>
+              <th scope="col">Short Link</th>
+              <th scope="col">Original Link</th>
+              <th scope="col">Expires at</th>
+              <th scope="col">Created at</th>
+            </tr>
+            </thead>
+            <tbody class="table-body overflow-hidden">
 
-              </tbody>
-            </table>
-        </div>
+            </tbody>
+          </table>
+      </div>                 
     </main>
     <footer>
 
