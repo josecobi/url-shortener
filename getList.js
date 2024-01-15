@@ -1,9 +1,10 @@
-import {getLinksBtn, listOfLinks, API_KEY, tableBody} from './index.js';
+import {getLinksBtn, listOfLinks, API_KEY, tableBody, originalLink} from './app.js';
+import {createAnchor} from "./createanchor.js";
 
 // Declare function to list the links
 export async function getList(){
     try{
-        getLinksBtn.addEventListener("click", (event) => {
+        getLinksBtn.addEventListener("click", () => {
             const headers = {
                 'Accept':'application/json',
                 'x-api-key': API_KEY
@@ -48,19 +49,23 @@ function addLinksToTable(arr){
         // Iterate through the object https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
         for (const property in object){
             let tableData = document.createElement('td');
-            let anchor = document.createElement('a');
+            
             if(property === 'expireAt'|| property === 'createdAt'){
                 // Convert date to UTCString https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toJSON
                 object[property] = new Date(object[property]).toUTCString();
             }
             // Make links clickable and add them to the row
             if(property === 'url'|| property === 'shortUrl'){
-                anchor.textContent = object[property];
-                anchor.setAttribute("href", object[property]);
+                const anchor = createAnchor(object[property], counter);
                 tableData.setAttribute("style", "max-width: 40rem;");
                 tableData.setAttribute("class", "overflow-auto");
+                
                 tableData.appendChild(anchor);
                 tableRow.appendChild(tableData);
+                if(property === 'url'){
+                    tableData.setAttribute("class", "d-none d-sm-block overflow-auto");
+                    originalLink.setAttribute("class", "d-none d-sm-block overflow-auto")
+                }
             }
             // Add the rest of the data to the row
             else{

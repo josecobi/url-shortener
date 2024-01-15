@@ -1,4 +1,4 @@
-import {form, inputBox, shortenedLink, API_KEY} from './index.js';
+import {form, inputBox, shortenedLink, API_KEY} from './app.js';
 
 // Declare a function that gets the link the user submitted
 export function shortenUrl(){
