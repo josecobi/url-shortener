@@ -82,10 +82,6 @@ This project is a URL shortener web application that allows users to shorten lon
 - **Import/Export:**
   - Modules are imported and exported to organize the code into separate files, promoting maintainability and reusability.
 
-## Note
-
-This explanation provides an overview of the URL Shortener project, describing its file structure, functionality, and the technologies used.
-
 
 ### CSS (index.css)
 
