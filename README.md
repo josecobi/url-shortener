@@ -2,7 +2,8 @@
 
 ## Table of Contents
 1. [Overview](#overview)
-2. [Files and Structure](#files-and-structure)
+2. [Screenshots](#screenshots)
+3. [Files and Structure](#files-and-structure)
     - [app.js](#appjs)
     - [shortenUrl.js](#shortenurljs)
     - [getlist.js](#getlistjs)
@@ -10,13 +11,19 @@
     - [home.html](#homehtml)
     - [shortenlinks.html](#shortenlinkshtml)
     - [SVG Files](#svg-files)
-3. [Usage of Event Listeners and ManyApis.com API](#usage-of-event-listeners-and-manyapiscom-api)
-4. [Async Functions and Import/Export](#async-functions-and-importexport)
-5. [Note](#note)
+4. [Usage of Event Listeners and ManyApis.com API](#usage-of-event-listeners-and-manyapiscom-api)
+5. [Async Functions and Import/Export](#async-functions-and-importexport)
+6. [Note](#note)
 
 ## Overview
 
 This project is a URL shortener web application that allows users to shorten long URLs and view a history of the links they have shortened. The application uses the [Many APIs](https://manyapis.com) service for URL shortening. The implementation includes the use of async functions, DOM manipulation, event listeners, and GET and POST methods to fetch information from the API.
+## Screenshots
+![Screenshot 2024-01-15 011353](https://github.com/josecobi/url-shortener/assets/58313777/c000a1dd-b750-40ca-8f8b-f305d84540c6)
+![Screenshot 2024-01-15 011407](https://github.com/josecobi/url-shortener/assets/58313777/92750b44-44f9-41a8-b662-6c555b5180c2)
+
+![Screenshot 2024-01-15 011428](https://github.com/josecobi/url-shortener/assets/58313777/7ec70ca0-4bab-4592-bde1-52cacc0accbe)
+![Screenshot 2024-01-15 011449](https://github.com/josecobi/url-shortener/assets/58313777/0ebdd57f-e9c0-4f44-8d91-7e47e6c22f0c)
 
 ## Files and Structure
 
