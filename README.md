@@ -1,78 +1,91 @@
 # URL Shortener README
 
 ## Table of Contents
-
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-  - [HTML (index.html)](#html-indexhtml)
-  - [JavaScript Files](#javascript-files)
-    - [Main JavaScript (index.js)](#main-javascript-indexjs)
-    - [URL Shortening Logic (shortenUrl.js)](#url-shortening-logic-shortenurljs)
-    - [List of Links Logic (getlist.js)](#list-of-links-logic-getlistjs)
-  - [CSS (index.css)](#css-indexcss)
-- [Styling](#styling)
-- [Usage](#usage)
-- [Import and Export](#import-and-export)
+1. [Overview](#overview)
+2. [Files and Structure](#files-and-structure)
+    - [app.js](#appjs)
+    - [shortenUrl.js](#shortenurljs)
+    - [getlist.js](#getlistjs)
+    - [createanchor.js](#createanchorjs)
+    - [home.html](#homehtml)
+    - [shortenlinks.html](#shortenlinkshtml)
+    - [SVG Files](#svg-files)
+3. [Usage of Event Listeners and ManyApis.com API](#usage-of-event-listeners-and-manyapiscom-api)
+4. [Async Functions and Import/Export](#async-functions-and-importexport)
+5. [Note](#note)
 
 ## Overview
 
 This project is a URL shortener web application that allows users to shorten long URLs and view a history of the links they have shortened. The application uses the [Many APIs](https://manyapis.com) service for URL shortening. The implementation includes the use of async functions, DOM manipulation, event listeners, and GET and POST methods to fetch information from the API.
 
-## Project Structure
+## Files and Structure
 
-### HTML (index.html)
-
-The project's HTML file (`index.html`) is organized as follows:
-
-- **Head Section:**
-  - Includes necessary meta tags.
-  - Imports the main JavaScript file (`index.js`).
-  - Links Bootstrap CSS for styling.
-
-- **Body Section:**
-  - Navigation bar with links to the home page and a page to view the user's shortened links.
-  - Main section with a form to submit long URLs for shortening.
-  - Display of the shortened URL.
-  - Section for viewing the user's shortened links, including a table.
-
-### JavaScript Files
-
-#### Main JavaScript (index.js)
-
-- **Variables:**
-  - `API_KEY`: API key for Many APIs.
-  - Various DOM elements for form, input box, shortened link, buttons, and table.
-
-- **Logic:**
-  - Calls functions for URL shortening and retrieving the list of links.
-  - Event listeners for form submission and button clicks.
-  - Function to copy the shortened URL to the clipboard.
-
-- **Import and Export:**
-  - Imported functions and variables from `shortenUrl.js` and `getlist.js`.
-  - Exported variables such as `form`, `inputBox`, `shortenedLink`, `API_KEY`, `getLinksBtn`, `listOfLinks`, `tableBody`, `originalLink`.
-
-#### URL Shortening Logic (shortenUrl.js)
+### app.js
 
 - **Functionality:**
-  - Listens for form submission.
-  - Fetches a shorter URL using the Many APIs service.
-  - Updates the UI with the shortened URL.
+  - Imports and exports variables and functions for various modules.
+  - Defines constants like the API_KEY.
+  - Sets up logic for the URL shortening form and the "Get Links" functionality.
 
-- **Import and Export:**
-  - Imported variables from `index.js`.
-  - Exported the `shortenUrl` function.
-
-#### List of Links Logic (getlist.js)
+### shortenUrl.js
 
 - **Functionality:**
-  - Listens for button click to retrieve the list of links.
-  - Fetches the list from Many APIs.
-  - Populates a table with link details.
+  - Handles the logic for shortening URLs.
+  - Listens for form submissions, prevents default behavior, and fetches a shorter URL from the ManyApis.com API.
+  - Utilizes async functions to handle API requests and responses.
 
-- **Import and Export:**
-  - Imported variables from `index.js`.
-  - Exported the `getList` function.
+### getlist.js
+
+- **Functionality:**
+  - Manages the logic for retrieving and displaying the list of shortened URLs.
+  - Utilizes the "Get Links" button to trigger API requests and updates the table with relevant information.
+
+### createanchor.js
+
+- **Functionality:**
+  - Declares a function to create anchor elements with URLs.
+  - Used for creating clickable links in the table.
+
+### home.html
+
+- **Functionality:**
+  - Defines the structure of the home page, including cards with information about features and an action button.
+  - Includes an explanation of the app's features and functionality.
+
+### shortenlinks.html
+
+- **Functionality:**
+  - Represents the app's main functionality page for URL shortening.
+  - Includes a form for submitting long URLs, displaying the short URL, and listing previously shortened URLs.
+
+### SVG Files
+
+- **Functionality:**
+  - Provides visual elements (analitics.svg, easyandfast.svg, forfree.svg, and qr-code.svg) for a more engaging and stylish design.
+
+## Usage of Event Listeners and ManyApis.com API
+
+- **Event Listeners:**
+  - The app utilizes event listeners to capture user interactions, such as form submissions and button clicks.
+  - These listeners trigger various functions that handle the logic for URL shortening and retrieving the list of shortened URLs.
+
+- **ManyApis.com API:**
+  - The ManyApis.com API is used for shortening URLs and retrieving a list of shortened URLs.
+  - API requests are made using the `fetch` function, and responses are processed to update the app's UI.
+
+## Async Functions and Import/Export
+
+- **Async Functions:**
+  - The app uses async functions to handle asynchronous operations, such as API requests.
+  - This ensures that the app can perform tasks like fetching data without blocking the main thread.
+
+- **Import/Export:**
+  - Modules are imported and exported to organize the code into separate files, promoting maintainability and reusability.
+
+## Note
+
+This explanation provides an overview of the URL Shortener project, describing its file structure, functionality, and the technologies used.
+
 
 ### CSS (index.css)
 
