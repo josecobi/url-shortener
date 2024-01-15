@@ -4,7 +4,6 @@ import {form, inputBox, shortenedLink, API_KEY} from './app.js';
 export function shortenUrl(){
     form.addEventListener("submit", (event) =>{
         event.preventDefault();
-        console.log(inputBox.value);
         // Store the value of the input box into a variable to be used in the API requests
         const linkSubmittedByUser = inputBox.value;
         // Get short link
@@ -46,7 +45,6 @@ async function fetchShortUrl(longUrl){
         }).then(function(body) {
             console.log(body);
             const shortenedUrl = body.shortUrl;
-            console.log('Shortened URL: ', shortenedUrl);
             shortenedLink.value = shortenedUrl;
             return shortenedUrl;
         });

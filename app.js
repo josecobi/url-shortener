@@ -12,7 +12,6 @@ const API_KEY = "sk_4f99a29fbce64868948b342fd520b2c0";
 
 const form = document.querySelector(".form");
 const inputBox = document.querySelector(".urlInputBox");
-// const shortenBtn = document.querySelector(".shortenBtn");
 const shortenedLink = document.querySelector(".shortened-link");
 const copyToClipboard = document.querySelector(".copy-to-clipboard");
 
