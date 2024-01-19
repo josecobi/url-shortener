@@ -1,5 +1,5 @@
 import {shortenUrl} from './shortenUrl.js';
-import {getList} from './getlist.js';
+import {getList} from './getList.js';
 export {form, inputBox, shortenedLink, API_KEY, getLinksBtn, listOfLinks, tableBody, originalLink};
 
 
