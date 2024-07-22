@@ -25,8 +25,6 @@ This project is a URL shortener web application that allows users to shorten lon
 ![Screenshot 2024-01-15 011428](https://github.com/josecobi/url-shortener/assets/58313777/7ec70ca0-4bab-4592-bde1-52cacc0accbe)
 ![Screenshot 2024-01-15 011449](https://github.com/josecobi/url-shortener/assets/58313777/0ebdd57f-e9c0-4f44-8d91-7e47e6c22f0c)
 
-## Files and Structure
-
 ### app.js
 
 - **Functionality:**
